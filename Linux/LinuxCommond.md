@@ -20,3 +20,11 @@ tags: "Linux"
 8.   系统管理员可用的管理命令
 9.   跟kernel有关的文件
 常见要记住的 是 1（用户可执行），5（配置文件），8（系统管理员可执行）
+
+
+## Run level 
+*  run level 0  关机  可以使用init 0 直接关机
+*  run level 3   命令行模式
+*  run level 5   含有图形界面模式
+*  run level 6   重启  init 6 可以直接重启电脑
+
