@@ -28,7 +28,7 @@ tags: "Linux"
 *  run level 5   含有图形界面模式
 *  run level 6   重启  init 6 可以直接重启电脑
 
-## service 
+## service   firewalld 服务进程 
 * 启动一个服务：systemctl start firewalld.service
 * 关闭一个服务：systemctl stop firewalld.service
 * 重启一个服务：systemctl restart firewalld.service
@@ -38,3 +38,12 @@ tags: "Linux"
 * 查看服务是否开机启动：systemctl is-enabled firewalld.service;echo $?
 * 查看已启动的服务列表：systemctl list-unit-files|grep enabled
 
+## linux 配置静态ip方法
+ 0.  使用 ip addr 查看当前本机ip 网卡信息。
+ 1.  进入到# cd /etc/sysconfig/network-scripts    文件夹 找到对应的网卡配置文件
+ 2.  修改如下   
+      >BOOTPROTO=static #dhcp换成ststic
+      >ONBOOT=yes #将no换成yes
+ 3.  重启网络大功告成  
+     service network restart   ||  systemctl restart network.service
+ 4.  查看修改后 的ip 是否正确   ip addr
