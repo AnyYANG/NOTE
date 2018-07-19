@@ -42,7 +42,7 @@ tags: "Linux"
  0.  使用 ip addr 查看当前本机ip 网卡信息。
  1.  进入到# cd /etc/sysconfig/network-scripts    文件夹 找到对应的网卡配置文件
  2.  修改如下   
-      >BOOTPROTO=static #dhcp换成static
+      >BOOTPROTO=static #dhcp换成static  使用静态ip
       >ONBOOT=yes #将no换成yes    表示系统接口将在系统启动时候开启
       >IPADDR=192.168.86.88
       >NETMASK=255.255.255.0
@@ -50,3 +50,12 @@ tags: "Linux"
  3.  重启网络大功告成  
      service network restart   ||  systemctl restart network.service
  4.  查看修改后 的ip 是否正确   ip addr
+
+ ## 用户组的操作
+  
+  *  添加一个用户组   用户组名称为grpone gid为10086（Gid是系统中唯一标识，不能重复的）
+     > groupadd -g 10086  grpone
+  *  查看用户组列表   nano /etc/group  文件内有所有组的信息
+  *  删除一个用户组
+     > groupdel grpone
+  *  修改一个用户组
