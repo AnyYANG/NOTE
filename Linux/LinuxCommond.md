@@ -59,3 +59,31 @@ tags: "Linux"
   *  删除一个用户组
      > groupdel grpone
   *  修改一个用户组
+  *  显示用户所属的用户组
+     >groups
+  *  newgrp 切换到相应用用户组?
+  ## 用户
+   ###基本操作
+    * useradd  
+    * userdel
+    * usermod
+    * grep liuyang /etc/passwd   在passwd文件中查找liuyang
+   ###基本参数
+    *  -d 目录     指定用户主目录，（默认是在/home目录下创建和用户名一样的目录）
+    *  -g 用户组   指定用户所属的用户组(主组）
+    *  -G 用户组   指定用户所属的附加组（这些组必需事先已经增加过了或者是系统中已经存在）
+    *  -s Shell    指定用户的登录Shell
+    *  -u UID      指定用户的用户号，如果同时有-o选项，则可以重复使用其他用户的标识号
+    *  -c 描述     指定一段注释性描述
+    *  -m          使用者目录若不存在则自动建立（默认选项）
+    ##例子
+    > useradd -g usergrouptwo -G admins -u 666  -s /sbin/nologin admin2
+    添加一个用户的主组是 usergrouptwo 的用户， 同时附加组有admins 同时用户的Gid为666
+    然后进入 /etc/group中查看可以看到
+    > admins:x:995:admin2
+      liuyang:x:1000:
+      usergrouptwo:x:777:
+    进入 /etc/passwd中可以看到
+    > liuyang:x:1000:1000::/home/liuyang:/bin/bash
+      admin2:x:666:777::/home/admin2:/sbin/nologin
+    说明了我设置成功了一个  Gid为666的，在Gid为777的主组中，同时又在附加组Gid为995的安全组中
