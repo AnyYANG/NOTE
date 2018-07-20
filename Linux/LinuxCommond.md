@@ -87,4 +87,8 @@ tags: "Linux"
     > liuyang:x:1000:1000::/home/liuyang:/bin/bash
       admin2:x:666:777::/home/admin2:/sbin/nologin
     说明了我设置成功了一个  Gid为666的，在Gid为777的主组中，同时又在附加组Gid为995的安全组中
-    #
+
+  ## 文件管理
+     chgrp    change group  改变文件所属用户组
+     chown    change owner  改变文件拥有者
+     chmod    change mode   改变文件权限 
