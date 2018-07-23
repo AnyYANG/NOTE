@@ -123,3 +123,11 @@ tags: "Linux"
     * 发行版本号     >uname -r  release
     * 系统内核架构  处理器类型 >uname -p   processor  
  
+## Linux 的文件种类  
+   使用ll 查看文件列表
+   * [-]  
+   * [d]  目录文件夹
+   * [p]  pipe 管道 first in first out  IO序列化流吧
+   * [s]  套接字 socket类型文件  数据接口文件。
+   * [b]  byte设备文件 一般指的是硬盘。
+   * [c]  字符设备文件， 串口设备 如鼠标，键盘等
