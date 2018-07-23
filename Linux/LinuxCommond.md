@@ -71,6 +71,8 @@ tags: "Linux"
     >> usermod -G B  admin  这时候admin会自动脱离A组进入B组
     > 修改用户附加组   在保留A组的前提下，将admin加入B组
     >> usermod -a(--append) -G B admin   这个的执行结果就是usermod 同时在A 和B 两个小组内
+    >从用户组中删除用户
+    >>编辑/etc/group 找到GROUP1那一行，删除 A或者用命gpasswd -d A GROUP
     * grep liuyang /etc/passwd   在passwd文件中查找liuyang
    ###基本参数
     *  -d 目录     指定用户主目录，（默认是在/home目录下创建和用户名一样的目录）
@@ -99,6 +101,7 @@ tags: "Linux"
      >修改文件夹下所有文件的归属文件组
      >>chgrp  -r w
      chown    change owner  改变文件拥有者
+     >chown -R admin   Dirctiroy  遍历修改文件夹下所有的文件的拥有着是admin
      chmod    change mode   改变文件权限 
 
 ## 禁止root的远程登陆 和禁用22端口
