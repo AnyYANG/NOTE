@@ -103,7 +103,11 @@ tags: "Linux"
      chown    change owner  改变文件拥有者
      >chown -R admin   Dirctiroy  遍历修改文件夹下所有的文件的拥有着是admin
      chmod    change mode   改变文件权限 
-
+     >chmod  777  filename      4+3+1 = read + write + run     三组权限的读写执行
+     >owner、group和others三种身份各自的三个权限，我们用u、g、o代表三种身份，用a（all）代表所有身份
+     >> chmod -R u=rwx,go=rx testdir   给testdir里面所有文件及文件夹 拥有者读写的权限，组和其他人读取和运行的权限
+     >> chmod a+w testdir  给所有用户 文件写的权限
+     >> chmod a-x testdir  去掉所有用户执行的权限
 ## 禁止root的远程登陆 和禁用22端口
    1. 进入/etc/ssh/ssh_config文件中，取消Port端口注释，修改22为10002
    2. 进入/etc/ssh/sshd_config文件中 ，修改Port 10002
