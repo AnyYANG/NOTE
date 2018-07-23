@@ -70,7 +70,7 @@ tags: "Linux"
     * grep liuyang /etc/passwd   在passwd文件中查找liuyang
    ###基本参数
     *  -d 目录     指定用户主目录，（默认是在/home目录下创建和用户名一样的目录）
-    *  -g 用户组   指定用户所属的用户组(主组）
+    *  -g 用户组   指定用户所属的用户组(主组）vi
     *  -G 用户组   指定用户所属的附加组（这些组必需事先已经增加过了或者是系统中已经存在）
     *  -s Shell    指定用户的登录Shell
     *  -u UID      指定用户的用户号，如果同时有-o选项，则可以重复使用其他用户的标识号
@@ -87,8 +87,21 @@ tags: "Linux"
     > liuyang:x:1000:1000::/home/liuyang:/bin/bash
       admin2:x:666:777::/home/admin2:/sbin/nologin
     说明了我设置成功了一个  Gid为666的，在Gid为777的主组中，同时又在附加组Gid为995的安全组中
-
+    让普通用户拥有root权限
+    > 修改/etc/passwd 中用户的UID 和GID 全部都为0  登陆普通用户即为root
+    > cat /etc/shadow 可以查看用户名
   ## 文件管理
      chgrp    change group  改变文件所属用户组
      chown    change owner  改变文件拥有者
      chmod    change mode   改变文件权限 
+
+
+
+## 查看系统版本信息 uanme
+   >uname -a (--all)
+   >Linux iZj6c2p9s8t15rrzq3vszoZ 3.10.0-514.16.1.el7.x86_64 #1 SMP Wed Apr 12 15:04
+    * 操作系统       >uname  -s sysname
+    * 网络主机名称   >uname -n  nodename
+    * 发行版本号     >uname -r  release
+    * 系统内核架构  处理器类型 >uname -p   processor  
+  
