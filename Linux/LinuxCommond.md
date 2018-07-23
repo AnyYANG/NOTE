@@ -95,6 +95,11 @@ tags: "Linux"
      chown    change owner  改变文件拥有者
      chmod    change mode   改变文件权限 
 
+## 禁止root的远程登陆 和禁用22端口
+   1. 进入/etc/ssh/ssh_config文件中，取消Port端口注释，修改22为10002
+   2. 进入/etc/ssh/sshd_config文件中 ，修改Port 10002
+   3. 修改sshd_config PermitRootLogin 为no  禁止root登陆
+   4. 使用命令重启 systemctl  restart sshd.service
 
 
 ## 查看系统版本信息 uanme
@@ -104,4 +109,4 @@ tags: "Linux"
     * 网络主机名称   >uname -n  nodename
     * 发行版本号     >uname -r  release
     * 系统内核架构  处理器类型 >uname -p   processor  
-  
+ 
