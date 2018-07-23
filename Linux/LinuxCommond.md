@@ -67,6 +67,10 @@ tags: "Linux"
     * useradd  
     * userdel
     * usermod
+    > 修改用户主要组， 将admin从A组脱离去B组.  
+    >> usermod -G B  admin  这时候admin会自动脱离A组进入B组
+    > 修改用户附加组   在保留A组的前提下，将admin加入B组
+    >> usermod -a(--append) -G B admin   这个的执行结果就是usermod 同时在A 和B 两个小组内
     * grep liuyang /etc/passwd   在passwd文件中查找liuyang
    ###基本参数
     *  -d 目录     指定用户主目录，（默认是在/home目录下创建和用户名一样的目录）
@@ -92,6 +96,8 @@ tags: "Linux"
     > cat /etc/shadow 可以查看用户名
   ## 文件管理
      chgrp    change group  改变文件所属用户组
+     >修改文件夹下所有文件的归属文件组
+     >>chgrp  -r w
      chown    change owner  改变文件拥有者
      chmod    change mode   改变文件权限 
 
