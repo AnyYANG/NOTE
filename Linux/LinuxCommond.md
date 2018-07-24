@@ -137,13 +137,15 @@ tags: "Linux"
    * 使用cd  ./a/ab/ 这里的的 ./是相对路径 指的是当前目录下的
    * 使用cd  ../b/c  这里的 ../ 值得是相对路径 当前文件夹下的上一个目录的 /b/c文件夹。 等同于  cd ..  cd /b/c
  ## 重要的一些文件夹
-   * sbin
-   * bin
+   * sbin   system bin    有两个位置 一个是 usr/sbin/  非系统运行的重要执行文件，网络服务器启动之类  一个是user/local/sbin这个是安装的第三方软件的系统执行文件
+   * bin  重要的执行文件，一般在 user/bin中。 如yum   su     du jobs等等
    * usr unix software  resource
    * opt 装在本机使用第三方软件 。   如games
-   * dev device 设备
+   * dev device 设备文件
    * srv service  www ,ftp server
    * etc 配置文件
-   * var 
-   * mnt
-   
+   * var 软件运行时的数据文件 如mysql的数据库可以考虑放在var中
+   * mnt 和media作用相同，只是额外的设备， U盘，手写板之类的c'd
+   * media  挂载的CD 软驱， dvd  floppy cdrom
+   * proc 虚拟文件系统，他放置的数据都在内存中。  如内核，进程，网络状态，外部设备状态。比较重要的有cpuinfo  dma  interrupts
+   * sys  跟proc类似不占用系统磁盘空间，虚拟文件系统 记录内核相关信息
