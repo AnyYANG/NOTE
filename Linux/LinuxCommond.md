@@ -130,4 +130,6 @@ tags: "Linux"
    * [p]  pipe 管道 first in first out  IO序列化流吧
    * [s]  套接字 socket类型文件  数据接口文件。
    * [b]  byte设备文件 一般指的是硬盘。
-   * [c]  字符设备文件， 串口设备 如鼠标，键盘等
+   * [c]  字符设备文件， 串口设备 如鼠标，键盘等llll
+
+  
