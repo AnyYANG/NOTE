@@ -132,4 +132,18 @@ tags: "Linux"
    * [b]  byte设备文件 一般指的是硬盘。
    * [c]  字符设备文件， 串口设备 如鼠标，键盘等llll
 
-  
+ ##  相对路径和绝对路径
+   * 使用cd  /ect/init.d 这样的称之为绝对路径
+   * 使用cd  ./a/ab/ 这里的的 ./是相对路径 指的是当前目录下的
+   * 使用cd  ../b/c  这里的 ../ 值得是相对路径 当前文件夹下的上一个目录的 /b/c文件夹。 等同于  cd ..  cd /b/c
+ ## 重要的一些文件夹
+   * sbin
+   * bin
+   * usr unix software  resource
+   * opt 装在本机使用第三方软件 。   如games
+   * dev device 设备
+   * srv service  www ,ftp server
+   * etc 配置文件
+   * var 
+   * mnt
+   
