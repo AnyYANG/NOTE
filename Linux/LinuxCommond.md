@@ -136,6 +136,7 @@ tags: "Linux"
    * 使用cd  /ect/init.d 这样的称之为绝对路径
    * 使用cd  ./a/ab/ 这里的的 ./是相对路径 指的是当前目录下的
    * 使用cd  ../b/c  这里的 ../ 值得是相对路径 当前文件夹下的上一个目录的 /b/c文件夹。 等同于  cd ..  cd /b/c
+   * 使用cd - 查看上一个目录历史
  ## 重要的一些文件夹
    * sbin   system bin    有两个位置 一个是 usr/sbin/  非系统运行的重要执行文件，网络服务器启动之类  一个是user/local/sbin这个是安装的第三方软件的系统执行文件
    * bin  重要的执行文件，一般在 user/bin中。 如yum   su     du jobs等等
@@ -149,3 +150,22 @@ tags: "Linux"
    * media  挂载的CD 软驱， dvd  floppy cdrom
    * proc 虚拟文件系统，他放置的数据都在内存中。  如内核，进程，网络状态，外部设备状态。比较重要的有cpuinfo  dma  interrupts
    * sys  跟proc类似不占用系统磁盘空间，虚拟文件系统 记录内核相关信息
+
+## 文件系统
+  文件的创建 mkdir
+  * 创建多层文件夹 mkdir -p  /home/Test/beat/
+  * 删除多级空文件夹  rmdir -p /home/Test/beat 会将上上面建立的Test 和beat文件夹删除。因为他们都空了。
+
+  文件的复制 cp
+  * 复制完整属性的文件 即文件拥有着不变，文件所在组不变。 文件创建时间不变的三不变备份文件
+    >cp -a  a.txt  b.txt
+    得到的结果如下(在使用root权限的前提下)
+    >-rwxr-----. 1 liuyang admins 10 7月  19 09:03 a.txt
+    >-rwxr-----. 1 liuyang admins 10 7月  19 09:03 b.txt
+     得到的结果如下(在使用root权限的前提下，不使用-a参数情况下)
+    >-rwxr-----. 1 liuyang admins 10 7月  19 09:03 a.txt
+    >-rwxr-----. 1 root root 10 7月  19 09:05 b.txt
+    可以发现-a 可以完整的复制文件的属性信息，保证原始文件权限的完整性。不被修改。
+    复制文件夹的时候 注意加上-r  才能递归复制，否之会复制直白
+    >cp -a  /etc/  .<-------这里的点指的是把etc文件夹复制到当前文件夹
+     
