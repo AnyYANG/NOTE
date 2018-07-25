@@ -168,4 +168,32 @@ tags: "Linux"
     可以发现-a 可以完整的复制文件的属性信息，保证原始文件权限的完整性。不被修改。
     复制文件夹的时候 注意加上-r  才能递归复制，否之会复制直白
     >cp -a  /etc/  .<-------这里的点指的是把etc文件夹复制到当前文件夹
+    硬连接和软连接
+    >cp -s a.txt  a  软连接   相当于window 中快捷方式  在ll中会有提示   a-> a.txt
+    >cp -l a.txt  b  硬链接   
+    运行结果
+    >lrwxrwxrwx. 1 root root   5 7月  25 22:44 a -> a.txt
+    >-rw-r--r--. 2 root root 117 7月  25 22:45 a.txt
+    >-rw-r--r--. 2 root root 117 7月  25 22:45 b
+    分析： 
+       不同点： 
+            硬核连接比较牛逼一点是硬核连接是一个文件，保留了a文件的属性
+            软连接就是一个快捷方式是link类型的，同时软连接权限好低
+        相同点：
+           都可以vi修改，修改后，三者文件仍是一致的。
+
+    使用cp -u 备份文件   使用-u参数的时候， cp命令会比较两个文件有差异的时候才会复制。没差异就不复制了。
+    > cp a.txt b.txt
+    > cp -u a.txt b.txt
+    使用cp -d 复制软连接
+    在复制软连接的时候， 默认会把源文件复制过去， 如果仅仅想复制软连接需要加cp -d
+    >  cp -s a.txt a_slink
+    >  cp -d a_slink a_slink1
+    >  cp    a_slink a_slikn2
+    >  ls
+    运行结果可以看到 -d复制的是link   不加-d默认复制的是文件
+    >   lrwxrwxrwx. 1 root root   5 7月  25 22:44 a -> a.txt
+    >   -rw-r--r--. 1 root root 117 7月  25 23:47 a_slink
+    >   lrwxrwxrwx. 1 root root   5 7月  25 23:48 a_slink2 -> a.txt
+
      
