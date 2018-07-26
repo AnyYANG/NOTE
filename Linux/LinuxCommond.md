@@ -196,4 +196,5 @@ tags: "Linux"
     >   -rw-r--r--. 1 root root 117 7月  25 23:47 a_slink
     >   lrwxrwxrwx. 1 root root   5 7月  25 23:48 a_slink2 -> a.txt
 
-     
+     touch
+     umask
