@@ -196,5 +196,15 @@ tags: "Linux"
     >   -rw-r--r--. 1 root root 117 7月  25 23:47 a_slink
     >   lrwxrwxrwx. 1 root root   5 7月  25 23:48 a_slink2 -> a.txt
 
+## 文件的查看     
+     *cat 从第一行开始显示文件内容
+     *tac 从最后一行开始显示文件内容， （cat的反过来）
+     *nl  显示的时候 顺便输出个行号
+     *more 一页一页显示文件内容
+     *less 和more一样，但是比more好用，可以往前翻页
+     *head 只看头几行
+     *tail 只看后几行
+     *od   二进制看文件
+
      touch
      umask
