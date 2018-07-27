@@ -204,7 +204,18 @@ tags: "Linux"
      *less 和more一样，但是比more好用，可以往前翻页
      *head 只看头几行
      *tail 只看后几行
+     > tail -n 10   message.txt  查看十行信息
+     > tail -f catlinna.out  可以持续查看文件输出内容，直到ctrl+c中止才结束
      *od   二进制看文件
-
+     怎样第10 -20行之间的文字
+     >head -n 20 a.txt|tail-n 10
+## 文件的三个时间
+    1. modification time 最后修改事件  mtime   ，文件被修改的时候 会修改mtime（默认的）
+    2. statu time   文件权限与属性最后被修改事件， 如修改小组的时候 会更改ctime
+    3. access time 文件最后一次被命令调用的时间， 如cat a.txt  时候机会更新atime
+    查看这三个时间
+    >ls  -l a.txt(默认的mtime)
+    >ls  -l --time =atime a.txt
+    >ls  -l --time =ctime a.txt
      touch
      umask
