@@ -212,10 +212,18 @@ tags: "Linux"
 ## 文件的三个时间
     1. modification time 最后修改事件  mtime   ，文件被修改的时候 会修改mtime（默认的）
     2. statu time   文件权限与属性最后被修改事件， 如修改小组的时候 会更改ctime
-    3. access time 文件最后一次被命令调用的时间， 如cat a.txt  时候机会更新atime
+    3. access time 文件最后一次被命令调用的时间， 如cat a.txt  时候机会更新atime（这个时间不可以被修改）
     查看这三个时间
     >ls  -l a.txt(默认的mtime)
     >ls  -l --time =atime a.txt
-    >ls  -l --time =ctime a.txt
-     touch
+    >ls  -l --time =ctime a.txt  
+    touch（创建文件或者修改文件时间，可以修改atime和mtime）
+    >touch test   (创建一个文件)
+    查看文件所有时间的属性
+    >ll test; ll  --time=atime  test ;ll --time=ctime(查看文件的时间属性)
+    修改文件的时间（默认同时修改 mtime 和atime 如果要单独修改可加参数-a[access] 或者-m[modifiation]）
+    >touch -d "1 days ago"  test  #取一天前日期
+    >touch -t "0805141212"  test  #直接指定日期
+
+
      umask
