@@ -236,3 +236,4 @@ tags: "Linux"
     >-rw-r--r--. 1 root root 0 8月   1 21:53 liuyang（7-0 7-2 7-2）
     >drwxr-xr-x. 2 root root 6 8月   1 21:54 liuyangs（6-0 6-2 6-2）
     #隐藏文件
+   
