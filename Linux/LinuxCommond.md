@@ -76,7 +76,7 @@ tags: "Linux"
     * grep liuyang /etc/passwd   在passwd文件中查找liuyang
    ###基本参数
     *  -d 目录     指定用户主目录，（默认是在/home目录下创建和用户名一样的目录）
-    *  -g 用户组   指定用户所属的用户组(主组）vi
+    *  -g 用户组   指定用户ls所属的用户组(主组）vi
     *  -G 用户组   指定用户所属的附加组（这些组必需事先已经增加过了或者是系统中已经存在）
     *  -s Shell    指定用户的登录Shell
     *  -u UID      指定用户的用户号，如果同时有-o选项，则可以重复使用其他用户的标识号
@@ -223,7 +223,7 @@ tags: "Linux"
     >ll test; ll  --time=atime  test ;ll --time=ctime(查看文件的时间属性)
     修改文件的时间（默认同时修改 mtime 和atime 如果要单独修改可加参数-a[access] 或者-m[modifiation]）
     >touch -d "1 days ago"  test  #取一天前日期
-    >touch -t "0805141212"  test  #直接指定日期
+    >touch -t "0805142"  test  #直接指定日期
 
     umask命令用来设置限制新建文件权限的掩码。当新文件被创建时，其最初的权限由文件创建掩码决定。用户每次注册进入系统时，umask命令都被执行， 并自动设置掩码mode来限制新文件的权限。用户可以通过再次执行umask命令来改变默认值，新的权限将会把旧的覆盖掉。
     >umask
@@ -235,5 +235,16 @@ tags: "Linux"
     以下是0022默认情况，新建的文件 和新建的文件夹的默认权限
     >-rw-r--r--. 1 root root 0 8月   1 21:53 liuyang（7-0 7-2 7-2）
     >drwxr-xr-x. 2 root root 6 8月   1 21:54 liuyangs（6-0 6-2 6-2）
-    #隐藏文件
-   
+    
+ ##隐藏文件
+    chattr 设置文件的隐藏属性。
+    chattr [+/-/=][属性] [目录或文件]
+    属性说明
+    * A  
+    * S
+    * **a**
+    * c
+    * d
+    * **i**
+    * s
+    
