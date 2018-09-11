@@ -8,7 +8,7 @@ import java.util.function.Predicate;
 /**
  * Created by Ly on 2018/9/11.
  */
-public class EmptyFilter {
+public class EmptyFilterStringList {
     public static void main(String args[]) {
         List<String> listS = Arrays.asList("1", "A", "B", "asdf", "", "12");
         Predicate<String> predicate = (String s) -> !s.isEmpty();
