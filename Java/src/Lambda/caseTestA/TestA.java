@@ -6,12 +6,10 @@ import java.util.List;
 class TestA {
     public void main(String args[]) {
         DirectoryStream.Filter<List<String>> listFilter = (List<String> list) -> list.isEmpty();
-
+        //()-> new Apple(10);
         System.out.println("helloworld");
     }
-    public void Instant(){
-        Apple  a = ()-> new Apple(10);
-    }
+    public void Instant(){}
     class Apple{
         private double weight;
         private String color;
