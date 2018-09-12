@@ -11,11 +11,17 @@ import java.util.function.Predicate;
  */
 public class TestA {
     public static void main(String args[]) {
-        List<Student> listStudent = Arrays.asList(new Student("a0",59),new Student("A332",98),new Student("b3",70));
-        //EmptyFilterObject<Student> filter= (Student student)-> student.score>60;
-        EmptyFilterObject<Student> filter= (Student student)-> student.getScore()>60;
-        List<Student> resultList=predicateStudent(listStudent,filter);
-        log(resultList);
+
+        List<Student> listStudent = Arrays.asList(new Student("a01",59),new Student("A2",98),new Student("b3",70));
+        EmptyFilterObject<Student> scorefilter= (Student student)-> student.getScore()>60;
+        EmptyFilterObject<Student> namefilter= (Student student)-> student.getName().length()>2;
+
+        List<Student> scoreresultList=predicateStudent(listStudent,scorefilter);
+        log(scoreresultList);
+
+        List<Student> nameresultList=predicateStudent(listStudent,namefilter);
+        log(nameresultList);
+
     }
 
     public static List<Student> predicateStudent(List<Student> students, EmptyFilterObject filterObject) {
