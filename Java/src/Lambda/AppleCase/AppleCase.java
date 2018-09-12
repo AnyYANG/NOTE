@@ -8,7 +8,7 @@ import java.util.function.Predicate;
 public class AppleCase<T> {
 
     public static void main(String arg[]){
-        AppleCase  casecase=new AppleCase();
+        AppleCase<Apple>  casecase=new AppleCase();
         List<Apple> list= Arrays.asList(new Apple("green",50),new Apple("green",50),new Apple("red",60),new Apple("green",45));
         List<Apple> result = casecase.filterApple(list,casecase::isRedApple);
 
