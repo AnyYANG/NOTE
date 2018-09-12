@@ -11,8 +11,9 @@ import java.util.function.Predicate;
  */
 public class TestA {
     public static void main(String args[]) {
-        List<Student> listStudent = Arrays.asList(new Student("a0",59),new Student("A2",98),new Student("b3",70));
-        EmptyFilterObject<Student> filter= (Student student)-> student.score>60;
+        List<Student> listStudent = Arrays.asList(new Student("a0",59),new Student("A332",98),new Student("b3",70));
+        //EmptyFilterObject<Student> filter= (Student student)-> student.score>60;
+        EmptyFilterObject<Student> filter= (Student student)-> student.getScore()>60;
         List<Student> resultList=predicateStudent(listStudent,filter);
         log(resultList);
     }
