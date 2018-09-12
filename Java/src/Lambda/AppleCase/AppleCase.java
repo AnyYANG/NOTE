@@ -5,12 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class AppleCase {
+public class AppleCase<T> {
 
     public static void main(String arg[]){
         AppleCase  casecase=new AppleCase();
         List<Apple> list= Arrays.asList(new Apple("green",50),new Apple("green",50),new Apple("red",60),new Apple("green",45));
-        List<Apple> result = filterApple(list,casecase::isRedApple);
+        List<Apple> result = casecase.filterApple(list,casecase::isRedApple);
 
     }
 
@@ -32,11 +32,11 @@ public class AppleCase {
     public   boolean isRedApple(Apple apple){
         return "red".equals(apple.getColor());
     }
-    public static List<Apple> filterApple(List<Apple> lists, Predicate<Apple> predicate){
-        List<Apple> result = new ArrayList<Apple>();
-        for(Apple  apple : lists){
-            if(predicate.test(apple)){
-             result.add(apple);
+    public   List<T> filterApple(List<T> lists, Predicate<T> predicate){
+        List<T> result = new ArrayList<T>();
+        for(T  t : lists){
+            if(predicate.test(t)){
+             result.add(t);
             }
         }
         return  result;
