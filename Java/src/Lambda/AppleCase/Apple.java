@@ -7,9 +7,9 @@ import java.util.List;
 
 public class Apple {
     String color;
-    double weight;
+    Integer weight;
 
-    public Apple(String color, double weight) {
+    public Apple(String color, Integer weight) {
         this.color = color;
         this.weight = weight;
     }
@@ -22,11 +22,11 @@ public class Apple {
         this.color = color;
     }
 
-    public double getWeight() {
+    public Integer  getWeight() {
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(Integer weight) {
         this.weight = weight;
     }
 
