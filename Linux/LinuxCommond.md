@@ -251,4 +251,16 @@ tags: "Linux"
     > touch am
     > chattr +aij  am  ##设置文件不允许被删除
     > lsattr ## 查看设置后文件属性
-    > chattr -i   am   ##去除文件保护属性
+    > chattr -i   am   ##去除文件保护属性；
+
+  ## 文件的特殊权限SUID(4) SGID(2) SBIT(1)
+   1. SET UID
+   2. SET GID
+   3. STICKY BIT (粘滞位)
+    有一个目录，我想给用户读写权限，但是我不能让他们随意把目录给给删除了。这时候使用粘滞位，可以设置。
+    ``` shell
+      mkdir /temp/
+      chomod 1777 /temp/
+      ll -ld /temp/
+    ```
+    
