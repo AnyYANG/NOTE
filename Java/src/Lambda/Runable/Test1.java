@@ -2,15 +2,23 @@ package Lambda.Runable;
 
 import Lambda.AppleCase.Apple;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.function.*;
 
 public class Test1 {
     public static void main(String args[]) {
-
-
+        /**
+         List<String> list = Arrays.asList("green", "red", "blue", "dark");
+         List<Apple>  result = getInstantList(list,Apple::new);
+         log(result,(Apple a)->System.out.println(a.getColor()+":"+a.getWeight()));
+         **/
+      //  ComparatorLamada();
+        HashMap<String ,Integer> map =   new HashMap<String,Integer>();
+        map.put("a",12);
+        map.put("b",23);
+        map.put("c",63);
+        map.put("d",23);
+        biFunctionInstance(map);
     }
 
     public static void TestLambdaThread() {
@@ -60,17 +68,16 @@ public class Test1 {
         List<String> list = Arrays.asList("a", "b", "A", "B");
         BiPredicate<List<String>, String> contains = (List, element) -> list.contains(element);
         BiPredicate<List<String>, String> contains2 = List::contains;
-
         Supplier<Apple> c1 = Apple::new;
         Apple a1 = c1.get();
         BiFunction<String, Integer, Apple> c2 = Apple::new;
         c2.apply("green", 40);
         List<Apple> result = getInstantList(list, Apple::new);
-
     }
 
     /**
      * 使用lambda来获取一组对象
+     *
      * @param list
      * @param conduct
      * @return
@@ -84,7 +91,23 @@ public class Test1 {
     }
 
     /**
+     * 遍历输出一个map
+     * @param map
+     * @return
+     */
+    public static List<Apple> biFunctionInstance(Map<String, Integer> map) {
+
+        List<Apple> appleList = new ArrayList<>();
+        // BiFunction<String,Integer,Apple> appleBiFunction=Apple::new;
+        BiConsumer<String, Integer> appleConsumer = (a, b) -> System.out.println(a + ":" + b);
+        map.forEach(appleConsumer);
+        //  Apple apple = appleBiFunction.apply()
+        return appleList;
+    }
+
+    /**
      * 使用lambda来输出对象信息
+     *
      * @param apples
      * @param consumer
      */
@@ -95,4 +118,13 @@ public class Test1 {
 
     }
 
+    /**
+     *
+     */
+    public static void ComparatorLamada() {
+        Comparator<Apple> appleComparator = Comparator.comparing(a -> a.getWeight());
+        List<Apple> appleList = getInstantList(Arrays.asList("green", "red", "blue"), Apple::new);
+        appleList.sort(appleComparator);
+        log(appleList, a -> System.out.println(a.getColor() + ":" + a.getWeight()));
+    }
 }
