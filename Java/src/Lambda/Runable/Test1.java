@@ -119,7 +119,7 @@ public class Test1 {
     }
 
     /**
-     *
+     *  lamdba输出苹果列表信息
      */
     public static void ComparatorLamada() {
         Comparator<Apple> appleComparator = Comparator.comparing(a -> a.getWeight());
