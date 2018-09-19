@@ -1,11 +1,4 @@
----
-layout: post
-title: Linux command
-permalink: new-page.html
-description:  This something about linux
-date: 2018-07-17 22:00:08 +08:00
-tags: "Linux"
----
+
 
 #Linux command   man
 --------------------
@@ -15,11 +8,11 @@ tags: "Linux"
 3.  一些常用的函数与函数库，大部分为C语言的函数库
 4.  设备文件的说明，通常在/dev 下的文件
 5.  配置文件或者是某些文件的格式
-6.   游戏
-7.   惯例与协议等
-8.   系统管理员可用的管理命令
-9.   跟kernel有关的文件
-常见要记住的 是 1（用户可执行），5（配置文件），8（系统管理员可执行）
+6.  游戏
+7.  惯例与协议等
+8.  系统管理员可用的管理命令
+9.  跟kernel有关的文件
+  常见要记住的 是 1（用户可执行），5（配置文件），8（系统管理员可执行）
 
 
 ## Run level 
@@ -39,42 +32,45 @@ tags: "Linux"
 * 查看已启动的服务列表：systemctl list-unit-files|grep enabled
 
 ## linux 配置静态ip方法 
- 0.  使用 ip addr 查看当前本机ip 网卡信息。
- 1.  进入到# cd /etc/sysconfig/network-scripts    文件夹 找到对应的网卡配置文件
- 2.  修改如下   
+ 0. 使用 ip addr 查看当前本机ip 网卡信息。
+ 1. 进入到# cd /etc/sysconfig/network-scripts    文件夹 找到对应的网卡配置文件
+ 2. 修改如下   
       >BOOTPROTO=static #dhcp换成static  使用静态ip
       >ONBOOT=yes #将no换成yes    表示系统接口将在系统启动时候开启
       >IPADDR=192.168.86.88
       >NETMASK=255.255.255.0
       >GATEWAY=192.168.86.2
- 3.  重启网络大功告成  
+ 3. 重启网络大功告成  
      service network restart   ||  systemctl restart network.service
- 4.  查看修改后 的ip 是否正确   ip addr
+ 4. 查看修改后 的ip 是否正确   ip addr
 
  ## 用户组的操作
-  
-  *  添加一个用户组   用户组名称为grpone gid为10086（Gid是系统中唯一标识，不能重复的）
+
+  * 添加一个用户组   用户组名称为grpone gid为10086（Gid是系统中唯一标识，不能重复的）
      > groupadd -g 10086  grpone
-  *  查看用户组列表   nano /etc/group  文件内有所有组的信息
-  *  删除一个用户组
+  * 查看用户组列表   nano /etc/group  文件内有所有组的信息
+  * 删除一个用户组
      > groupdel grpone
-  *  修改一个用户组
-  *  显示用户所属的用户组
+  * 修改一个用户组
+  * 显示用户所属的用户组
      >groups
-  *  newgrp 切换到相应用用户组?
+  * newgrp 切换到相应用用户组?
   ## 用户
    ###基本操作
     * useradd  
     * userdel
     * usermod
+    
     > 修改用户主要组， 将admin从A组脱离去B组.  
-    >> usermod -G B  admin  这时候admin会自动脱离A组进入B组
+    >usermod -G B  admin  这时候admin会自动脱离A组进入B组
     > 修改用户附加组   在保留A组的前提下，将admin加入B组
-    >> usermod -a(--append) -G B admin   这个的执行结果就是usermod 同时在A 和B 两个小组内
+    >usermod -a(--append) -G B admin   这个的执行结果就是usermod 同时在A 和B 两个小组内
     >从用户组中删除用户
     >>编辑/etc/group 找到GROUP1那一行，删除 A或者用命gpasswd -d A GROUP
     * grep liuyang /etc/passwd   在passwd文件中查找liuyang
+    * 
    ###基本参数
+
     *  -d 目录     指定用户主目录，（默认是在/home目录下创建和用户名一样的目录）
     *  -g 用户组   指定用户ls所属的用户组(主组）vi
     *  -G 用户组   指定用户所属的附加组（这些组必需事先已经增加过了或者是系统中已经存在）
@@ -82,7 +78,9 @@ tags: "Linux"
     *  -u UID      指定用户的用户号，如果同时有-o选项，则可以重复使用其他用户的标识号
     *  -c 描述     指定一段注释性描述
     *  -m          使用者目录若不存在则自动建立（默认选项）
+    
     ##例子
+    
     > useradd -g usergrouptwo -G admins -u 666  -s /sbin/nologin admin2
     添加一个用户的主组是 usergrouptwo 的用户， 同时附加组有admins 同时用户的Gid为666
     然后进入 /etc/group中查看可以看到
@@ -109,20 +107,21 @@ tags: "Linux"
      >> chmod a+w testdir  给所有用户 文件写的权限
      >> chmod a-x testdir  去掉所有用户执行的权限
 ## 禁止root的远程登陆 和禁用22端口
-   1. 进入/etc/ssh/ssh_config文件中，取消Port端口注释，修改22为10002
-   2. 进入/etc/ssh/sshd_config文件中 ，修改Port 10002
-   3. 修改sshd_config PermitRootLogin 为no  禁止root登陆
-   4. 使用命令重启 systemctl  restart sshd.service
+      1. 进入/etc/ssh/ssh_config文件中，取消Port端口注释，修改22为10002
+      2. 进入/etc/ssh/sshd_config文件中 ，修改Port 10002
+      3. 修改sshd_config PermitRootLogin 为no  禁止root登陆
+      4. 使用命令重启 systemctl  restart sshd.service
 
 
-## 查看系统版本信息 uanme
+## 查看系统版本信息 uname
    >uname -a (--all)
-   >Linux iZj6c2p9s8t15rrzq3vszoZ 3.10.0-514.16.1.el7.x86_64 #1 SMP Wed Apr 12 15:04
-    * 操作系统       >uname  -s sysname
-    * 网络主机名称   >uname -n  nodename
-    * 发行版本号     >uname -r  release
-    * 系统内核架构  处理器类型 >uname -p   processor  
- 
+     >Linux iZj6c2p9s8t15rrzq3vszoZ 3.10.0-514.16.1.el7.x86_64 #1 SMP Wed Apr 12 15:04
+
+      * 操作系统       >uname  -s sysname
+      * 网络主机名称   >uname -n  nodename
+      * 发行版本号     >uname -r  release
+      * 系统内核架构  处理器类型 >uname -p   processor  
+
 ## Linux 的文件种类  
    使用ll 查看文件列表
    * [-]  
@@ -159,39 +158,39 @@ tags: "Linux"
   文件的复制 cp
   * 复制完整属性的文件 即文件拥有着不变，文件所在组不变。 文件创建时间不变的三不变备份文件
     >cp -a  a.txt  b.txt
-    得到的结果如下(在使用root权限的前提下)
+    >得到的结果如下(在使用root权限的前提下)
     >-rwxr-----. 1 liuyang admins 10 7月  19 09:03 a.txt
     >-rwxr-----. 1 liuyang admins 10 7月  19 09:03 b.txt
-     得到的结果如下(在使用root权限的前提下，不使用-a参数情况下)
+    >得到的结果如下(在使用root权限的前提下，不使用-a参数情况下)
     >-rwxr-----. 1 liuyang admins 10 7月  19 09:03 a.txt
     >-rwxr-----. 1 root root 10 7月  19 09:05 b.txt
-    可以发现-a 可以完整的复制文件的属性信息，保证原始文件权限的完整性。不被修改。
-    复制文件夹的时候 注意加上-r  才能递归复制，否之会复制直白
+    >可以发现-a 可以完整的复制文件的属性信息，保证原始文件权限的完整性。不被修改。
+    >复制文件夹的时候 注意加上-r  才能递归复制，否之会复制直白
     >cp -a  /etc/  .<-------这里的点指的是把etc文件夹复制到当前文件夹
-    硬连接和软连接
+    >硬连接和软连接
     >cp -s a.txt  a  软连接   相当于window 中快捷方式  在ll中会有提示   a-> a.txt
     >cp -l a.txt  b  硬链接   
-    运行结果
+    >运行结果
     >lrwxrwxrwx. 1 root root   5 7月  25 22:44 a -> a.txt
     >-rw-r--r--. 2 root root 117 7月  25 22:45 a.txt
     >-rw-r--r--. 2 root root 117 7月  25 22:45 b
-    分析： 
-       不同点： 
-            硬核连接比较牛逼一点是硬核连接是一个文件，保留了a文件的属性
-            软连接就是一个快捷方式是link类型的，同时软连接权限好低
-        相同点：
-           都可以vi修改，修改后，三者文件仍是一致的。
+    >分析： 
+    >  不同点： 
+    >       硬核连接比较牛逼一点是硬核连接是一个文件，保留了a文件的属性
+    >       软连接就是一个快捷方式是link类型的，同时软连接权限好低
+    >   相同点：
+    >      都可以vi修改，修改后，三者文件仍是一致的。
 
     使用cp -u 备份文件   使用-u参数的时候， cp命令会比较两个文件有差异的时候才会复制。没差异就不复制了。
     > cp a.txt b.txt
     > cp -u a.txt b.txt
-    使用cp -d 复制软连接
-    在复制软连接的时候， 默认会把源文件复制过去， 如果仅仅想复制软连接需要加cp -d
+    > 使用cp -d 复制软连接
+    > 在复制软连接的时候， 默认会把源文件复制过去， 如果仅仅想复制软连接需要加cp -d
     >  cp -s a.txt a_slink
     >  cp -d a_slink a_slink1
     >  cp    a_slink a_slikn2
     >  ls
-    运行结果可以看到 -d复制的是link   不加-d默认复制的是文件
+    > 运行结果可以看到 -d复制的是link   不加-d默认复制的是文件
     >   lrwxrwxrwx. 1 root root   5 7月  25 22:44 a -> a.txt
     >   -rw-r--r--. 1 root root 117 7月  25 23:47 a_slink
     >   lrwxrwxrwx. 1 root root   5 7月  25 23:48 a_slink2 -> a.txt
@@ -213,6 +212,8 @@ tags: "Linux"
     1. modification time 最后修改事件  mtime   ，文件被修改的时候 会修改mtime（默认的）
     2. statu time   文件权限与属性最后被修改事件， 如修改小组的时候 会更改ctime
     3. access time 文件最后一次被命令调用的时间， 如cat a.txt  时候机会更新atime（这个时间不可以被修改）
+
+
     查看这三个时间
     >ls  -l a.txt(默认的mtime)
     >ls  -l --time =atime a.txt
@@ -224,7 +225,7 @@ tags: "Linux"
     修改文件的时间（默认同时修改 mtime 和atime 如果要单独修改可加参数-a[access] 或者-m[modifiation]）
     >touch -d "1 days ago"  test  #取一天前日期
     >touch -t "0805142"  test  #直接指定日期
-
+    
     umask命令用来设置限制新建文件权限的掩码。当新文件被创建时，其最初的权限由文件创建掩码决定。用户每次注册进入系统时，umask命令都被执行， 并自动设置掩码mode来限制新文件的权限。用户可以通过再次执行umask命令来改变默认值，新的权限将会把旧的覆盖掉。
     >umask
     >0022    =======> 跟权限有关的是后面三个数字，有几就拿7减去几，user group other    user拥有7的权限，group拥有5的权限，other也是拥有5的权限
@@ -235,7 +236,7 @@ tags: "Linux"
     以下是0022默认情况，新建的文件 和新建的文件夹的默认权限
     >-rw-r--r--. 1 root root 0 8月   1 21:53 liuyang（7-0 7-2 7-2）
     >drwxr-xr-x. 2 root root 6 8月   1 21:54 liuyangs（6-0 6-2 6-2）
-    
+
  ##隐藏文件
     chattr 设置文件的隐藏属性。
     chattr [+/-/=][属性] [目录或文件]
@@ -254,13 +255,94 @@ tags: "Linux"
     > chattr -i   am   ##去除文件保护属性；
 
   ## 文件的特殊权限SUID(4) SGID(2) SBIT(1)
-   1. SET UID
-   2. SET GID
-   3. STICKY BIT (粘滞位)
-    有一个目录，我想给用户读写权限，但是我不能让他们随意把目录给给删除了。这时候使用粘滞位，可以设置。
-    ``` shell
-      mkdir /temp/
-      chomod 1777 /temp/
-      ll -ld /temp/
-    ```
+  SUID和SGID让本来没有相应权限的用户(组)运行这个程序时，可以访问没有权限访问的资源。
+   例如 passwd，locale这类命令
+
+  ```shellScript
+   
+   ##SID  EXAMPLE
+   [root@liuyang ~]# ls -l  /usr/bin/passwd
+   -rwsr-xr-x. 1 root root 27832 6月  10 2014 /usr/bin/passwd
+   ##GID  EXAMPLE
+   [root@liuyang ~]# ls -l /usr/bin/locate
+   -rwx--sr-x. 1 root root 38680 4月  10 16:24 /usr/bin/locale
+  ```
+
+  这类命令本身是root拿来给其他账户设置密码的。但是，这类命令也能被用户自己所使用更改自己账户的密码。从上面可以看到这个passwd命令的root执行权限是rws 其中第三位s就代表者这个命令被设置了uid ,同样如果当s再中间组权限中的时候，即为被设置了SGid 其余的用户都能执行和读取。普通用户在执行具有SUID 和 GUID的命令的时候，会先把自己的用户权限转换成root再执行。
+
+      1. SET UID
+    * SUID 权限仅限于对二进制程序有效（binary program）. 普通创建的shellscript是不能用的。
+    * 执行者对程序需要有x的执行权限。（使用ll命令查看到s如果是小写则表示有x权限。如果看到大写S 表示没有x执行权限）
+    * 本权限仅在执行该程序的过程中有效。（passwd使用该程序的时候你才拥有root权限，当你不使用的时候，就没有了root权限）
+    * 执行者将具有程序owner的权限。（root权限借给你）
+      2. SET GID
+    * 同上的四条。
+    * 另增SGID 可以设置到目录上。
+    * SGID 从单个用户拓展到用户组。
     
+      3. STICKY BIT (粘滞位)
+    有一个目录，我想给用户读写权限，但是我不能让他们随意把目录给给删除了。这时候使用粘滞位，可以设置。
+    
+    ``` shell
+      mkdir /temp/ ;
+      chomod 1777 /temp/;
+      ll -ld /temp/;
+   ```
+
+   运行结果
+
+   ``` shell
+     drwxrwxrwt. 2 root root  6 9月  17 21:32 temp
+   ```
+
+   可以看到得到权限t,表示设置成功。
+
+   #### 设置SUID GID SBIT权限的方法。
+
+首先权限位是再之前权限位基础上加上一位。如下所示：
+
+* 4 为SUID
+* 2 为SGID
+* 1 为SBID
+
+所以再设置权限的时候
+
+```shell
+
+chmod 1777  dirname 
+
+chmod 2666 filename
+
+chmod  4621 filename
+
+chmod 7777 dirname
+
+```
+
+当然上面有些权限设置是无效的 因为把SUID设置到文件夹上了。
+
+
+
+### 查看文件类型file
+
+如果想知道文件基本类型是什么，是txt还是二进制程序，还是其他data数据文件。使用file命令
+
+```shell
+file ~/.bashrc
+file /usr/bin/passwd
+file /etc/passwd
+```
+
+## 查找命令所在的path 使用which
+```shell
+#返回查找出来的第一个which命令所在path
+which which
+alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+#返回全部which命令所在的path
+which -a which
+alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+        /usr/bin/alias
+        /usr/bin/which
+
+```
+
