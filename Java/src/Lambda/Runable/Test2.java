@@ -3,10 +3,7 @@ package Lambda.Runable;
 import Lambda.AppleCase.Apple;
 
 import java.util.*;
-import java.util.function.BiConsumer;
-import java.util.function.BiFunction;
-import java.util.function.Consumer;
-import java.util.function.Function;
+import java.util.function.*;
 
 public class Test2 {
     static Map<String, Integer> map = new HashMap<>();
@@ -24,7 +21,7 @@ public class Test2 {
     public static void main(String args[]) {
         BiFunction<String, Integer, Apple> appleBiFunction = (a, b) -> new Apple(a, b);
         BiFunction<String, Integer, Apple> appleBiFunction2 = Apple::new;
-        List<Apple> appleList= initAppleList(map, appleBiFunction);
+        List<Apple> appleList = initAppleList(map, appleBiFunction);
         System.out.println();
         compareApple(appleList);
     }
@@ -51,11 +48,12 @@ public class Test2 {
 
     /**
      * 根据重量排序
+     *
      * @param apples
      */
     public static void compareApple(List<Apple> apples) {
-        Comparator<Apple> appleComparator=( a, b)->a.getWeight().compareTo(b.getWeight());
-        apples.sort(appleComparator);
+        Comparator<Apple> appleComparator = (a, b) -> a.getWeight().compareTo(b.getWeight());
+        apples.sort(appleComparator.reversed().thenComparing(Apple::getColor));
         log(apples);
     }
 
@@ -69,5 +67,10 @@ public class Test2 {
         for (Apple app : apples) {
             consumer.accept(app);
         }
+    }
+
+    public static void funcitonlambda(List<Apple> apples) {
+        Comparator<Apple> appleComparator = (a, b) -> a.getWeight().compareTo(b.getWeight());
+
     }
 }
