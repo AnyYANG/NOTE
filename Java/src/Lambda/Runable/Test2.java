@@ -62,7 +62,7 @@ public class Test2 {
      *
      * @param apples
      */
-    public static void log(List<Apple> apples, Predicate) {
+    public static void log(List<Apple> apples) {
         Consumer<Apple> consumer = (apple) -> System.out.println(apple.getColor() + ":" + apple.getWeight());
         for (Apple app : apples) {
             consumer.accept(app);
