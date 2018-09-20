@@ -14,6 +14,10 @@ public class FilterStringList {
         List<String> result = filter(listS, FilterStringList::testEmpty);
         List<String> resultlength = filter(listS, FilterStringList::testLength);
         List<String> resultliu = filter(listS, FilterStringList::testConLiu);
+
+        List<String> resultNow = filter(listS, (String s)->s.isEmpty());
+        List<String> resultlengthNow = filter(listS,(String s)->s.length()>5);
+        List<String> resultliuNow = filter(listS,(String s)->s.contains("liu"));
         log(result);
         log(resultlength);
         log(resultliu);
