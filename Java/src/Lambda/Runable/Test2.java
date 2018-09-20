@@ -62,7 +62,7 @@ public class Test2 {
      *
      * @param apples
      */
-    public static void log(List<Apple> apples) {
+    public static void log(List<Apple> apples, Predicate) {
         Consumer<Apple> consumer = (apple) -> System.out.println(apple.getColor() + ":" + apple.getWeight());
         for (Apple app : apples) {
             consumer.accept(app);
@@ -71,6 +71,32 @@ public class Test2 {
 
     public static void funcitonlambda(List<Apple> apples) {
         Comparator<Apple> appleComparator = (a, b) -> a.getWeight().compareTo(b.getWeight());
+
+    }
+
+    /**
+     *
+     * @param apples     苹果集合
+     * @param predicate  判断条件
+     */
+    public static void checkApple(List<Apple> apples, Predicate<Apple> predicate) {
+        for (Apple app : apples) {
+            if (predicate.test(app)) {
+                System.out.println("产地：" + app.getOrigin() + " 质量：" + app.getWeight() + " 颜色：" + app.getColor());
+            }
+        }
+    }
+    public static void test(List<Apple> apples){
+
+        Predicate<Apple> weightBest=(Apple a)->a.getWeight()>50;
+        checkApple(apples,weightBest);
+       //非中国生产的Apple
+        Predicate<Apple> originCN= (Apple a)->"cn".equals(a.getOrigin());
+        checkApple(apples,originCN.negate().and(weightBest.and((Apple a)->"green".equals(a.getColor().toLowerCase()))));
+
+        Predicate<Apple> colorRed= (Apple a)->"red".equals(a.getColor().toLowerCase());
+        checkApple(apples,colorRed.and(originCN));
+
 
     }
 }

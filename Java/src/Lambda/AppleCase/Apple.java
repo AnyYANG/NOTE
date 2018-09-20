@@ -8,7 +8,7 @@ import java.util.List;
 public class Apple {
     String color;
     Integer weight;
-
+    String origin;
     public Apple() {
     }
     public Apple(Integer  weight) {
@@ -17,6 +17,14 @@ public class Apple {
     public Apple(String color, Integer weight) {
         this.color = color;
         this.weight = weight;
+    }
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
     }
 
     public String getColor() {
