@@ -44,7 +44,7 @@ public class Apple {
     }
 
     public static List<Apple> getAppleList(){
-        return  Arrays.asList(new Apple("green",50),new Apple("green",50),new Apple("red",60),new Apple("green",45));
+        return  Arrays.asList(new Apple("green",51),new Apple("green",50),new Apple("red",60),new Apple("green",45));
     }
     public static void log(List<String> stringList) {
         for (String s : stringList) {
