@@ -16,7 +16,7 @@ import static java.util.stream.Collectors.toList;
 
 public class FindAndMatch {
     public static void main(String args[]) {
-        //match1();
+         //match1();
         //  match2();
         // match3();
        // match4();
@@ -24,6 +24,9 @@ public class FindAndMatch {
         match6();
     }
 
+    /**
+     *  求数组每个值的平方能被2整除的值
+     */
     public static void match1() {
         List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
 

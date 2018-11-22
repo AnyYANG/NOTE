@@ -24,6 +24,7 @@ public class demo1 {
     }
     //找出所有2001年的交易 并排序
     public static void filter1(){
+
       transactions.stream().filter(transaction ->transaction.getYear()==2001).sorted(Comparator.comparingInt(Transaction::getValue)).forEach(transaction -> System.out.println(transaction.toString()));
     }
     //找出所有交易员的城市
