@@ -2,6 +2,10 @@ package Lambda.AppleCase;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 /**
  * Lambda表达式方法的引用
@@ -33,6 +37,11 @@ public class ComparatorApple {
      * @param applelist
      */
     private static void compartorLambdaB(List<Apple> applelist) {
-        applelist.sort(Comparator.comparing(Apple::getWeight));
+        Supplier<String> sup= ()->"str";
+        Callable<String> cal= () -> "str";
+        applelist.sort(Comparator.comparing(Apple::getWeight).reversed());
+        applelist.sort(Comparator.comparing(Apple::getWeight).reversed());
+        applelist.sort(Comparator.comparing(Apple::getWeight).reversed());
+        applelist.sort(Comparator.comparing(Apple::getWeight).thenComparing(Apple::getColor));
     }
 }
