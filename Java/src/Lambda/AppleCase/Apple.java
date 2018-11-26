@@ -11,6 +11,7 @@ public class Apple {
     String origin;
     public Apple() {
     }
+
     public Apple(Integer  weight) {
         this.weight=weight;
     }
