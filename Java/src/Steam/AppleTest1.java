@@ -15,7 +15,7 @@ import static java.util.stream.Collectors.toList;
  * All Right Reserved by liuyang.
  **/
 
-public class Test1 {
+public class AppleTest1 {
 
     public static void main(String args[]){
         List<Apple> appleList =  Apple.getAppleList();;
