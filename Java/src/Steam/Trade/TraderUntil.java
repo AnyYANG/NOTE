@@ -15,14 +15,22 @@ public class TraderUntil {
     static {
         Trader tom = new Trader("tom", "beijing");
         Trader tim = new Trader("tim", "beijing");
+        Trader qim = new Trader("qim", "shenyang");
+        Trader eim = new Trader("eim", "shenyang");
+        Trader rim = new Trader("rim", "beijing");
         Trader jim = new Trader("jim", "xian");
         Trader best = new Trader("best", "shanghai");
         Trader lol = new Trader("lol", "shanghai");
-        traderList = Arrays.asList(tom, tim, jim, best, lol);
+        traderList = Arrays.asList(rim,eim,qim,tom, tim, jim, best, lol);
         transactions = Arrays.asList(new Transaction(tom, 2001, 800),
                 new Transaction(tim, 2001, 700),
                 new Transaction(jim, 2001, 100),
                 new Transaction(best, 2001, 399),
+                new Transaction(lol, 2001, 993),
+                new Transaction(tom, 2001, 863),
+                new Transaction(eim, 2001, 700),
+                new Transaction(jim, 2001, 130),
+                new Transaction(rim, 2001, 3949),
                 new Transaction(lol, 2001, 993),
                 new Transaction(tom, 2001, 86),
 
