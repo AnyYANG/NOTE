@@ -8,4 +8,5 @@ package bingfa;
  **/
 
 public class FuturTask {
+
 }
