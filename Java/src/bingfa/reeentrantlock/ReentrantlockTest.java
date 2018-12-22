@@ -1,17 +1,10 @@
 package bingfa.reeentrantlock;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-
 /**
  * Created by  liuyang
  * 2018/12/6    20:27
- * bingfa
+ *  并发编程
  * All Right Reserved by liuyang.
  **/
 
