@@ -8,6 +8,7 @@ package bingfa;
         * All Right Reserved by liuyang.
         **/
 
-public class FuturTask {
+public class FutureTask {
+
 
 }
