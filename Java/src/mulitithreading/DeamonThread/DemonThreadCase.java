@@ -1,10 +1,9 @@
 package mulitithreading.DeamonThread;
 
-import org.junit.jupiter.api.Test;
-
 /**
  * Created by  liuyang
  * 2018/12/28    18:21
+ * 守护进程的简单demo
  * mulitithreading.DeamonThread
  * All Right Reserved by liuyang.
  **/
