@@ -16,11 +16,10 @@ import org.junit.jupiter.api.Test;
  */
 public class StringinternMethod {
     public static void main(String args[]){
-        test1();
-
-        test2();
-
-        test3();
+//        test1();
+//        test2();
+//        test3();
+          test4();
     }
 
 
@@ -46,4 +45,15 @@ public class StringinternMethod {
         String b=new String("").intern();// b的值是从常量池中取到的
         System.out.println(a==b);
     }
+
+    public static void test4(){
+        String temp = "asdf";
+        String a="asdf"+temp;
+        String b=("asdf"+temp).intern();
+        String c="asdfasdf";// b的值是从常量池中取到的
+        System.out.println(a==c);
+        System.out.println(a==b);
+        System.out.println(b==c);
+    }
+
 }
