@@ -1,6 +1,4 @@
 package bingfa.reeentrantlock;
-
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -16,9 +14,10 @@ public class ReentrantlockTest2 {
     public void signal() {
         try {
             RLock.lock.lock();
+
             RLock.condition.signal();
         } finally {
             RLock.lock.unlock();
         }
-    }
+        }
 }
